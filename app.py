@@ -41,6 +41,6 @@ def deregister():
     if id:
         db.execute("DELETE FROM registrants WHERE id = ?", id)
     return redirect("/registrants")
-
+#hoofdprogramma
 if __name__ == "__main__":
     app.run(debug=True)
