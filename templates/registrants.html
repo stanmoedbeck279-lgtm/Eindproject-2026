@@ -1,0 +1,28 @@
+{% extends  "layout.html" %}
+
+{% block body %}
+    <h1>Thank you for registering!</h1>
+    <p>Registrants</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Activity</th>         
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in registrants %}
+                <tr>
+                    <td>{{row["name"]}}</td>
+                    <td>{{row["activity"]}}</td>
+                    <td>
+                        <form action="/deregister" method="post">
+                            <input name="id" type="hidden" value="{{row['id']}}">
+                            <button type="submit">Deregister</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

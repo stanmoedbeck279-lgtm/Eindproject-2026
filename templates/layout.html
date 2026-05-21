@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity</title>
+    <style>
+        .index-bg {
+            background-image: url('{{ url_for("static", filename="London.jpg") }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

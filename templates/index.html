@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="index-bg">
+    <h1>Register for an Activity in London</h1>
+    <form action="/register" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <p>Activity</p>
+        {% for activity in activities %}
+            <div>
+                <label>
+                    <input name="activity" type="checkbox" value="{{ activity }}"> {{ activity }}
+                </label>
+            </div>
+        {% endfor %}
+        <p>Time</p>
+        {% for t in time %}
+            <div>
+                <label>
+                    <input name="time" type="radio" value="{{ t }}" > {{ t }}
+                </label>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
