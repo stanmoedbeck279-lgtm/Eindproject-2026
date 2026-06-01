@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- ADDED: centered `.card` wrapper for login form -->
+<div class="login-bg">
+    <div class="card">
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <h2 class="text-center">Login</h2>
+        <form action="/login" method="post">
+            <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+            <input autocomplete="off" name="password" placeholder="Password" type="password">
+            <div style="display:flex;justify-content:center;margin-top:12px">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <p class="text-center" style="margin-top:12px">Don't have an account? <a href="/signup">Register</a></p>
+    </div>
+</div>
+{% endblock %}

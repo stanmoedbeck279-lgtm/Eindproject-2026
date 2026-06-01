@@ -1,27 +1,23 @@
+{# Converted to extend 'layout.html' so this page uses the global header/footer and theme #}
 {% extends "layout.html" %}
 
 {% block body %}
+<!-- Index hero wrapper: uses .index-bg and a card-styled panel for consistent spacing -->
 <div class="index-bg">
-    <h1>Register for an Activity in London</h1>
-    <form action="/register" method="post">
-        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
-        <p>Activity</p>
-        {% for activity in activities %}
-            <div>
-                <label>
-                    <input name="activity" type="checkbox" value="{{ activity }}"> {{ activity }}
-                </label>
-            </div>
-        {% endfor %}
-        <p>Time</p>
-        {% for t in time %}
-            <div>
-                <label>
-                    <input name="time" type="radio" value="{{ t }}" > {{ t }}
-                </label>
-            </div>
-        {% endfor %}
-        <button type="submit">Submit</button>
-    </form>
+  <!-- hero-card: background image set inline for convenience; overlay handled in CSS (.hero-card::before) -->
+  <div class="card hero-card text-center" style="background-image: url('{{ url_for('static', filename='images/London.png') }}'); background-position: center; background-size: cover;">
+    <div>
+      <!-- Heading follows site type scale; keep concise for accessibility -->
+      <h1>Welcome to the UK Activity Registration Service.</h1>
+      <!-- Short description under the heading -->
+      <p>Register for an activity and enjoy your trip!</p>
+      <div style="margin-top:18px">
+        <!-- Primary CTA: uses .button for consistent look with other buttons -->
+        <a class="button" href="/activities">View Activities</a>
+        <!-- Secondary/ghost CTA: transparent variant for subtle action -->
+        <a class="button ghost" href="/signup">Sign up</a>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

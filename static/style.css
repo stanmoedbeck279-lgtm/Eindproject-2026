@@ -1,0 +1,112 @@
+/* ADDED: Modern theme variables and layout styles (replaced old stylesheet)
+    Purpose: provide consistent colors, spacing, and responsive rules
+*/
+:root{
+    --bg: #0f172a; /* deep navy */
+    --card: #0b1220; /* card dark */
+    --muted: #94a3b8;
+    --accent: linear-gradient(90deg,#7c5cff 0%,#4dd0e1 100%);
+    --glass: rgba(255,255,255,0.04);
+    --soft: #e6eef7;
+    --radius: 12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: radial-gradient(1200px 400px at 10% 10%, rgba(77,208,225,0.06), transparent), #f6f8fb;
+    color:#0f172a;
+    -webkit-font-smoothing:antialiased;
+}
+
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{background:var(--accent);color:white;padding:14px 0;border-bottom-left-radius:16px;border-bottom-right-radius:16px}
+/* ADDED: header styles - responsive brand and navigation */
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand-logo{width:48px;height:48px;object-fit:cover;border-radius:8px;box-shadow:0 4px 18px rgba(12,18,28,0.2)}
+.brand-title{font-weight:700;font-size:1.1rem;display:block}
+.brand-sub{display:block;font-size:0.75rem;opacity:0.95}
+.site-nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600}
+.site-nav a:hover{text-decoration:underline;opacity:0.95}
+
+/* Main area */
+.main{padding:36px 0}
+/* ADDED: main container and card utility for consistent page panels */
+.card{background:white;border-radius:var(--radius);box-shadow:0 6px 30px rgba(15,23,42,0.06);padding:28px}
+.card{background:white;border-radius:var(--radius);box-shadow:0 6px 30px rgba(15,23,42,0.06);padding:28px}
+
+/* ADDED: Form styles - inputs and buttons for consistent look */
+/* Form styles */
+form{display:block;gap:12px}
+input[type="text"],input[type="password"],textarea,select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #e6eef7;background:transparent;font-size:1rem}
+label{display:block;margin-bottom:6px;font-weight:600;color:var(--bg)}
+button{background:linear-gradient(90deg,#7c5cff,#4dd0e1);color:white;padding:10px 16px;border:none;border-radius:10px;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(0.96);transform:translateY(-1px)}
+.error{color:#b00020;background:#fff1f2;padding:10px;border-radius:8px;border:1px solid #f8d7da}
+
+/* Index radio list */
+.index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.index-item{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(12,18,28,0.04)}
+
+/* Login/signup styles use card */
+.login-bg{max-width:420px;margin:18px auto}
+.login-bg .card{padding:24px}
+
+/* ADDED: Tables - readable registrant lists */
+/* Table */
+table{width:100%;border-collapse:collapse;margin-top:12px}
+thead th{background:#f1f5f9;text-align:left;padding:10px;border-bottom:2px solid #e2e8f0}
+tbody td{padding:10px;border-bottom:1px solid #f1f5f9}
+tbody tr:hover{background:rgba(77,208,225,0.03)}
+
+.site-footer{padding:18px 0;margin-top:36px;color:var(--muted);font-size:0.9rem}
+/* ADDED: footer styles */
+.site-footer{padding:18px 0;margin-top:36px;color:var(--muted);font-size:0.9rem}
+
+.site-footer{padding:18px 0;margin-top:36px;color:var(--muted);font-size:0.9rem}
+/* Utilities */
+.text-center{text-align:center}
+
+/* Responsive tweaks */
+@media (max-width:720px){
+    .header-inner{flex-direction:column;gap:12px;align-items:flex-start}
+    .site-nav a{margin-left:0;margin-right:12px}
+    .brand-sub{display:none}
+}
+
+/* backward-compatibility for templates using content-box */
+.content-box{margin:18px auto;max-width:900px;background:white;border-radius:12px;padding:24px;box-shadow:0 8px 30px rgba(15,23,42,0.04)}
+
+/* small helper for forms generated in index */
+.index-bg .card{padding:18px}
+
+/* Hero card for index page */
+/* Hero card for index page
+    - Uses .hero-card to create a centered, card-like hero that matches site cards
+    - Background image is applied inline in the template; the ::before pseudo-element adds a dark overlay
+    - Text and buttons are placed above overlay using z-index
+*/
+.hero-card{position:relative;color:white;overflow:hidden;min-height:420px;display:flex;align-items:center;justify-content:center;padding:48px}
+.hero-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,23,42,0.35), rgba(15,23,42,0.45));pointer-events:none}
+.hero-card > *{position:relative;z-index:2}
+.hero-card h1{font-size:2.4rem;margin:0 0 12px}
+.hero-card p{font-size:1.05rem;margin:0 0 18px;color:rgba(255,255,255,0.95)}
+
+/* Buttons used in hero */
+.button{display:inline-block;background:linear-gradient(90deg,#7c5cff,#4dd0e1);color:white;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+.button.ghost{background:transparent;border:2px solid rgba(255,255,255,0.18);color:white;margin-left:12px}
+
+/* Notes:
+    - .button provides the primary CTA look consistent with forms across the site
+    - .button.ghost is a transparent variant used for secondary actions in the hero
+*/
+
+@media (max-width:720px){
+    .hero-card{min-height:320px;padding:28px}
+    .hero-card h1{font-size:1.6rem}
+}

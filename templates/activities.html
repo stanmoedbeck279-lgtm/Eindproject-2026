@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- ADDED: card wrapper and responsive grid for radio options -->
+<div class="index-bg">
+    <div class="card">
+        <form action="/register" method="post">
+            <h2 class="text-center">Register for an Activity</h2>
+            <section>
+                <h3>Activity</h3>
+                <div class="index-grid">
+                {% for activity in activities %}
+                    <label class="index-item">
+                        <input name="activity" type="radio" value="{{ activity }}"> {{ activity }}
+                    </label>
+                {% endfor %}
+                </div>
+            </section>
+
+            <section>
+                <h3>Time</h3>
+                <div class="index-grid">
+                {% for t in time %}
+                    <label class="index-item">
+                        <input name="time" type="radio" value="{{ t }}"> {{ t }}
+                    </label>
+                {% endfor %}
+                </div>
+            </section>
+
+            <section>
+                <h3>Amount</h3>
+                <div class="index-grid">
+                {% for a in amount %}
+                    <label class="index-item">
+                        <input name="amount" type="radio" value="{{ a }}"> {{ a }}
+                    </label>
+                {% endfor %}
+                </div>
+            </section>
+
+            <section>
+                <h4>Total Price</h4>
+                <div class="index-grid">
+                {% for activity in activities %}
+                    <option value="{{ activity }}">
+                    {{ activity }}—£{{ prices[activity] }}
+                    </option>
+                {% endfor %}
+                </div>
+            </section>
+
+            <div style="margin-top:16px;display:flex;gap:12px;justify-content:center">
+                <button type="submit">Submit</button>
+                <form action="/logout" method="get">
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

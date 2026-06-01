@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity</title>
-    <style>
-        .index-bg {
-            background-image: url('{{ url_for("static", filename="London.jpg") }}');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-        }
-    </style>
+    <meta name="theme-color" content="#0f172a">
+    <title>ARS</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    {% block body %}
-    {% endblock %}
+    <!-- ADDED: Responsive header with brand/logo and top navigation -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="/">
+                <img src="{{ url_for('static', filename='images/UK-flag.svg') }}" alt="logo" class="brand-logo">
+                <div class="brand-text">
+                    <span class="brand-title">ARS</span>
+                    <small class="brand-sub">Activity Registration Service</small>
+                </div>
+            </a>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/registrants">Registrants</a>
+                <a href="/login">Login</a>
+                <a href="/signup">Sign up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ADDED: Main content container. Individual pages use `.card` for panels. -->
+    <main class="container main">
+        {% block body %}{% endblock %}
+    </main>
+
+    <!-- ADDED: Site footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 ARS</p>
+        </div>
+    </footer>
 </body>
 </html>
