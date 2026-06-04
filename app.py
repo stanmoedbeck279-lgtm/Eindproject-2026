@@ -7,7 +7,7 @@ app.secret_key = 'your_secret_key_here'
 
 db = SQL("sqlite:///registratie.db")
 
-ACTIVITIES = ["Londen-Eye", "Madame Tussauds", "Tower of London", "St. Paul's Cathedral", "British Museum", "Natural History Museum", "Science Museum", "Victoria and Albert Museum"]
+ACTIVITIES = ["Londen-Eye", "Madame Tussauds", "Tower of London", "St. Paul's Cathedral", "British Museum", "Natural History Museum", "Science Museum", "Victoria & Albert Museum"]
 TIME = ["10:00", "12:00", "14:00", "16:00", "18:00", "20:00"]
 AMOUNT = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -20,9 +20,43 @@ PRICES = {
     "British Museum": 0,
     "Natural History Museum": 0,
     "Science Museum": 0,
-    "Victoria and Albert Museum": 0,
+    "Victoria & Albert Museum": 0,
 }
 
+DETAILS = {
+    "Londen-Eye": {
+        "description": "Europe's tallest cantilevered observation wheel offering breathtaking panoramic views of London.",
+        "image": "London_Eye.jpg"
+    },
+    "Madame Tussauds": {
+        "description": "World-famous wax museum featuring incredibly lifelike figures of celebrities and historical icons.",
+        "image": "MadameTussauds.jpg"
+    },
+    "Tower of London": {
+        "description": "A historic castle and fortress on the River Thames, home to the Crown Jewels since 1303.",
+        "image": "Tower_of_London.jpg"
+    },
+    "St. Paul's Cathedral": {
+        "description": "Sir Christopher Wren's baroque masterpiece with a magnificent dome dominating London's skyline.",
+        "image": "St_Paul's_Cathedral.jpg"
+    },
+    "British Museum": {
+        "description": "One of the world's greatest museums, housing over 8 million works spanning 2 million years of history. Free entry.",
+        "image": "British_Museum.jpg"
+    },
+    "Natural History Museum": {
+        "description": "A breathtaking Victorian building home to 80 million specimens, including dinosaur skeletons. Free entry.",
+        "image": "Natural_History_Museum.jpg"
+    },
+    "Science Museum": {
+        "description": "An inspiring museum tracing humanity's greatest achievements in science and technology. Free entry.",
+        "image": "Science_Museum.jpg"
+    },
+    "Victoria & Albert Museum": {
+        "description": "The world's leading museum of art and design, with 2.3 million objects across 5,000 years. Free entry.",
+        "image": "Victoria&Albert_Museum.jpg"
+    },
+}
 @app.route("/signup", methods=["GET"])
 def signup():
     return render_template("signup.html")
@@ -75,7 +109,7 @@ def index():
 def activities():
     if not session.get("user"):
         return redirect("/login")
-    return render_template("activities.html", activities=ACTIVITIES, time=TIME, amount=AMOUNT, prices=PRICES)
+    return render_template("activities.html", activities=ACTIVITIES, time=TIME, amount=AMOUNT, prices=PRICES, details=DETAILS)
 
 @app.route("/register", methods=["POST"])
 def register():

@@ -53,6 +53,11 @@ button:hover{filter:brightness(0.96);transform:translateY(-1px)}
 .index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .index-item{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(12,18,28,0.04)}
 
+.activity-card{background:var(--glass);padding:18px;border-radius:14px;border:1px solid rgba(12,18,28,0.08);display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.activity-card img{width:100%;max-width:260px;height:auto;object-fit:cover;border-radius:14px;display:block}
+.activity-card h3{margin:0;font-size:1.05rem}
+.activity-card p{margin:0;color:#475569}
+
 /* Login/signup styles use card */
 .login-bg{max-width:420px;margin:18px auto}
 .login-bg .card{padding:24px}

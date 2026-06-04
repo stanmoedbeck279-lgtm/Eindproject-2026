@@ -10,10 +10,22 @@
                 <h3>Activity</h3>
                 <div class="index-grid">
                 {% for activity in activities %}
+                <div class="activity-card">
+                    <img src="{{ url_for('static', filename='images/' + details[activity].image) }}" alt="{{ activity }}">
                     <label class="index-item">
                         <input name="activity" type="radio" value="{{ activity }}"> {{ activity }}
                     </label>
-                {% endfor %}
+                    <p>{{ details[activity].description }}</p>
+                        <p>
+                            {% if prices[activity] == 0 %}
+                                Free
+                            {% else %}
+                                £{{ prices[activity] }} per person
+                            {% endif %}
+                        </p>
+                        <!-- your existing radio button / form fields here -->
+                    </div>
+                    {% endfor %}   
                 </div>
             </section>
 
@@ -40,11 +52,11 @@
             </section>
 
             <section>
-                <h4>Total Price</h4>
+                <h4>Prices</h4>
                 <div class="index-grid">
                 {% for activity in activities %}
                     <option value="{{ activity }}">
-                    {{ activity }}—£{{ prices[activity] }}
+                    {{ activity }}-£{{ prices[activity] }}
                     </option>
                 {% endfor %}
                 </div>
