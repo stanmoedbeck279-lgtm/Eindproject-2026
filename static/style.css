@@ -64,6 +64,7 @@ button:hover{filter:brightness(0.96);transform:translateY(-1px)}
 
 /* ADDED: Tables - readable registrant lists */
 /* Table */
+.table-responsive{overflow-x:auto; width:100%}
 table{width:100%;border-collapse:collapse;margin-top:12px}
 thead th{background:#f1f5f9;text-align:left;padding:10px;border-bottom:2px solid #e2e8f0}
 tbody td{padding:10px;border-bottom:1px solid #f1f5f9}
@@ -114,4 +115,11 @@ tbody tr:hover{background:rgba(77,208,225,0.03)}
 @media (max-width:720px){
     .hero-card{min-height:320px;padding:28px}
     .hero-card h1{font-size:1.6rem}
+    .card { padding: 20px 16px; }
+    .site-nav { flex-wrap: wrap; gap: 10px; }
+    .site-nav a { margin: 0; }
+    .table-wrapper { margin-left: -16px; margin-right: -16px; padding: 0 16px; }
+    table { font-size: 0.95rem; }
+    tbody td, thead th { padding: 10px 8px; }
+    .card form, .card button { width: 100%; }
 }

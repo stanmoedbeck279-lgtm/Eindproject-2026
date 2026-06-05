@@ -3,11 +3,11 @@
 {% block body %}
     <!-- ADDED: registrants list wrapped in `.card` and styled table -->
     <div class="card">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <h2>Thank you for registering!</h2>
+    <div class="table-responsive">
         <table>
             <thead>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
                 <tr>
                     <th>Name</th>
                     <th>Password</th>
@@ -34,9 +34,9 @@
                         </td>
                     </tr>
                 {% endfor %}
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
             </tbody>
         </table>
+    </div>
         <div style="display:flex;justify-content:center;margin-top:12px">
             <form action="/logout" method="get">
                 <button type="submit">Logout</button>
