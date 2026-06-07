@@ -21,7 +21,7 @@
                 {% for row in registrants %}
                     <tr>
                         <td>{{row["name"]}}</td>
-                        <td>{{row["password"]}}</td>
+                        <td>{{ "•" * row["password"]|length }}</td>
                         <td>{{row["activity"]}}</td>
                         <td>{{row["time"]}}</td>
                         <td>{{row["amount"]}}</td>
