@@ -1,6 +1,4 @@
-/* ADDED: Modern theme variables and layout styles (replaced old stylesheet)
-    Purpose: provide consistent colors, spacing, and responsive rules
-*/
+
 :root{
     --bg: #0f172a; /* deep navy */
     --card: #0b1220; /* card dark */
