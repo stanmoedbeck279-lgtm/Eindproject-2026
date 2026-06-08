@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
+
 # Verbind met de lokale SQLite database.
 db = SQL("sqlite:///registratie.db")
 

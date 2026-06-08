@@ -2,17 +2,17 @@
 
 {% block body %}
 <!-- ADDED: card wrapper and responsive grid for radio options -->
-<div class="index-bg">
-    <div class="card">
+<div class="section-wrapper">
+    <div class="content-card">
         <form action="/register" method="post">
             <h2 class="text-center">Register for an Activity</h2>
             <section>
                 <h3>Activity</h3>
-                <div class="index-grid">
+                <div class="option-grid">
                 {% for activity in activities %}
-                <div class="activity-card">
+                <div class="activity-panel">
                     <img src="{{ url_for('static', filename='images/' + details[activity].image) }}" alt="{{ activity }}">
-                    <label class="index-item">
+                    <label class="option-card">
                         <input name="activity" type="radio" value="{{ activity }}"> {{ activity }}
                     </label>
                     <p>{{ details[activity].description }}</p>
@@ -31,9 +31,9 @@
 
             <section>
                 <h3>Time</h3>
-                <div class="index-grid">
+                <div class="option-grid">
                 {% for t in time %}
-                    <label class="index-item">
+                    <label class="option-card">
                         <input name="time" type="radio" value="{{ t }}"> {{ t }}
                     </label>
                 {% endfor %}
@@ -42,9 +42,9 @@
 
             <section>
                 <h3>Amount</h3>
-                <div class="index-grid">
+                <div class="option-grid">
                 {% for a in amount %}
-                    <label class="index-item">
+                    <label class="option-card">
                         <input name="amount" type="radio" value="{{ a }}"> {{ a }}
                     </label>
                 {% endfor %}
@@ -53,7 +53,7 @@
 
             <section>
                 <h4>Prices</h4>
-                <div class="index-grid">
+                <div class="option-grid">
                 {% for activity in activities %}
                     <option value="{{ activity }}">
                     {{ activity }}-£{{ prices[activity] }}

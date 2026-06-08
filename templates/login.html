@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<!-- ADDED: centered `.card` wrapper for login form -->
-<div class="login-bg">
-    <div class="card">
+<!-- ADDED: centered `.content-card` wrapper for login form -->
+<div class="auth-panel">
+    <div class="content-card">
         {% if error %}
-            <p class="error">{{ error }}</p>
+            <p class="form-error">{{ error }}</p>
         {% endif %}
         <h2 class="text-center">Login</h2>
         <form action="/login" method="post">

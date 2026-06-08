@@ -13,12 +13,12 @@
 <body>
     <!-- ADDED: Responsive header with brand/logo and top navigation -->
     <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="/">
+        <div class="page-container header-content">
+            <a class="site-brand" href="/">
                 <img src="{{ url_for('static', filename='images/UK-flag.svg') }}" alt="logo" class="brand-logo">
                 <div class="brand-text">
                     <span class="brand-title">ARS</span>
-                    <small class="brand-sub">Activity Registration Service</small>
+                    <small class="brand-tagline">Activity Registration Service</small>
                 </div>
             </a>
             <nav class="site-nav">
@@ -31,14 +31,14 @@
         </div>
     </header>
 
-    <!-- ADDED: Main content container. Individual pages use `.card` for panels. -->
-    <main class="container main">
+    <!-- ADDED: Main content container. Individual pages use `.content-card` for panels. -->
+    <main class="page-container page-main">
         {% block body %}{% endblock %}
     </main>
 
     <!-- ADDED: Site footer -->
     <footer class="site-footer">
-        <div class="container footer-inner">
+        <div class="page-container footer-inner">
             <p>&copy; 2026 ARS</p>
         </div>
     </footer>
